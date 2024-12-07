@@ -7,9 +7,12 @@ void setup();
 void loop();
 
 // Define GPIO pin numbers 
-#define LASER_PIN 0 // Pin connected to the laser receiver (GPIO 17) 
-#define RED_LED_PIN 1 // Pin connected to the red LED (GPIO 18) 
-#define GREEN_LED_PIN 2 // Pin connected to the green LED (GPIO 27)
+// Pin connected to the laser receiver (GPIO 17)
+// Pin connected to the red LED (GPIO 18)
+// Pin connected to the green LED (GPIO 27)
+#define LASER_PIN 0  
+#define RED_LED_PIN 1  
+#define GREEN_LED_PIN 2 
 
 int main(void)
 {
@@ -18,15 +21,18 @@ int main(void)
     return 0;
 }
 
+// Set the pin modes 
+// Initial state: Green LED on, Red LED off 
+// Laser receiver as input
+// Red LED as output 
+// Green LED as output 
 void setup() { 
-    wiringPiSetup(); // Initialize wiringPi 
-
-    // Set the pin modes 
-    pinMode(LASER_PIN, INPUT); // Laser receiver as input 
-    pinMode(RED_LED_PIN, OUTPUT); // Red LED as output 
-    pinMode(GREEN_LED_PIN, OUTPUT); // Green LED as output 
-
-    // Initial state: Green LED on, Red LED off 
+    wiringPiSetup(); 
+    
+    pinMode(LASER_PIN, INPUT);  
+    pinMode(RED_LED_PIN, OUTPUT); 
+    pinMode(GREEN_LED_PIN, OUTPUT); 
+    
     digitalWrite(GREEN_LED_PIN, HIGH); 
     digitalWrite(RED_LED_PIN, LOW); 
 }
